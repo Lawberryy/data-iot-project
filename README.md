@@ -36,5 +36,5 @@ $ npm install
 ```
 - Ensuite, pour démarrer le serveur (afin d'utiliser la première version du projet), entrez la commande suivante :
 ```shell
-$ npm run dev
+$ npm run start
 ```
