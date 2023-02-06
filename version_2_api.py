@@ -8,8 +8,8 @@ wlan = network.WLAN(network.STA_IF) # met la raspi en mode client wifi
 wlan.active(True) # active le mode client wifi
 
 
-ssid = 'IIM_Private'
-password = 'Creatvive_Lab_2023'
+ssid = 'Fielas_phone'
+password = 'a424jMahe'
 wlan.connect(ssid, password) # connecte la raspi au réseau
 url = "https://api.meteo-concept.com/api/forecast/daily/0?insee=92050&token=2adec8ce3ebf940275d6a0ebb57dd75069b41231e886f7d20f9ee3489ece08ce"
 while not wlan.isconnected():
@@ -27,35 +27,27 @@ led2 = Pin(13, mode=Pin.OUT) # declaration d'une variable de type pin ici la 17
 pin_button = Pin(18, mode=Pin.IN, pull=Pin.PULL_UP) # declaration d'une variable de type pin ici la 14
                                                      #et on prescise que c'est une pine d'entré de courant (IN)
 
-temper = 14
+temper = 9
 while True: # boucle infini     
     try:
          print("GET")
          r = urequests.get(url) # lance une requete sur l'url
          print(r.json()["forecast"]["tmax"]) # traite sa reponse en Json
          temperature = r.json()["forecast"]["tmax"]
-         r.close() # ferme la demande 
+         print(pin_button.value()) # on envoie la valeur du bouton
+         utime.sleep(.1)            # on attend 0.1 seconde
+         if pin_button.value() == 0 and temper >= temperature:
+             led1.on()
+             led2.off()
+         elif pin_button.value() == 0 and temper < temperature:
+             led2.on()
+             led1.off()
+         else:
+             led2.off()
+             led1.off()
+         r.close() # ferme la demande
+         
+        
     except Exception as e:
          print(e)
          
-         
-         print(pin_button.value()) # on envoie la valeur du bouton
-    utime.sleep(.1)            # on attend 0.1 seconde
-    if pin_button.value() == 0 and temper >= temperature:
-        led1.on()
-        led2.off()
-    elif pin_button.value() == 0 and temper < temperature:
-        led2.on()
-        led1.off()
-    else:
-        led2.off()
-        led1.off()
-             
-        
-                 
-    
-
-        
-        
-
-
