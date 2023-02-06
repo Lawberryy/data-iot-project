@@ -8,8 +8,8 @@ wlan = network.WLAN(network.STA_IF) # met la raspi en mode client wifi
 wlan.active(True) # active le mode client wifi
 
 
-ssid = 'IIM_Private'
-password = 'Creatvive_Lab_2023'
+ssid = 'Fielas_phone'
+password = 'a424jMahe'
 wlan.connect(ssid, password) # connecte la raspi au réseau
 url = "http://192.168.43.23:3000/"
 while not wlan.isconnected():

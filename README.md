@@ -9,8 +9,9 @@ Dans ce projet, on utilise [l'API Météo](https://api.meteo-concept.com/documen
 
 Nous avons 2 versions de ce projet :
 - Une première qui utilise un serveur local sur lequel on stock en brut les données météo de la journée récupérées avec l'API, elles n'évoluent donc plus d'une journée à l'autre.
-Nous n'avons pas pu tourner la vidéo mais cette version fonctionnait très bien en classe.
 - Une seconde un peu plus intéressante qui utilise directement l'API (et donc son serveur) afin que la température maximale se renouvelle chaque jour, et donc le projet aussi.
+
+Une vidéo de chaque version est disponible.
 
 ## Démarrer avec le projet
 
@@ -36,5 +37,5 @@ $ npm install
 ```
 - Ensuite, pour démarrer le serveur (afin d'utiliser la première version du projet), entrez la commande suivante :
 ```shell
-$ npm run dev
+$ npm run start
 ```
